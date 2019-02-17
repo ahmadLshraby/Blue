@@ -12,6 +12,7 @@ import Firebase
 class AuthService {
     static let instance = AuthService()
     
+    // MARK: REGISTER NEW USER
     func registerUser(withEmail email: String, andPassword password: String, userCreationComplete: @escaping(_ status: Bool, _ error: Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let result = result {
@@ -27,6 +28,7 @@ class AuthService {
         }
     }
     
+    // MARK: SIGN IN USERS
     func loginUser(withEmail email: String, andPassword password: String, loginComplete: @escaping(_ status: Bool, _ error: Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error == nil {

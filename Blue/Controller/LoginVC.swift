@@ -23,6 +23,7 @@ class LoginVC: UIViewController {
     dismiss(animated: true, completion: nil)
     }
     
+    // login -> if not a user , register -> if ok , login
     @IBAction func signInBtn(_ sender: Any) {
         if emailTxt.text != nil && passwordTxt.text != nil {
             AuthService.instance.loginUser(withEmail: emailTxt.text!, andPassword: passwordTxt.text!) { (success, error) in

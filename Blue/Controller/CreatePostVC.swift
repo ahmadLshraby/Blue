@@ -23,6 +23,11 @@ class CreatePostVC: UIViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.emailLbl.text = Auth.auth().currentUser?.email
+    }
+    
     @IBAction func closeBtn(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }

@@ -24,7 +24,7 @@ class FeedVC: UIViewController {
         super.viewDidAppear(animated)
         // download the messages from feed child in Database as array
         DataService.instance.getAllFeedMessage { (downloadedMessageArray) in
-            self.messageArray = downloadedMessageArray
+            self.messageArray = downloadedMessageArray.reversed()  // to reverse the view of the array (reversed collection <([])>)
             self.tableview.reloadData()
         }
     }
@@ -32,6 +32,7 @@ class FeedVC: UIViewController {
 
 }
 
+// MARK: CONFIGURE TABLEVIEW
 extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,7 +48,10 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as? FeedCell {
         let image = UIImage(named: "defaultProfileImage")
             let message = messageArray[indexPath.row]
-            cell.configureCell(profileImage: image!, email: message.senderId, content: message.content)
+            
+            DataService.instance.getUsername(forUID: message.senderId) { (resultUsername) in
+                cell.configureCell(profileImage: image!, email: resultUsername, content: message.content)
+            }
             return cell
         }
         

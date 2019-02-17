@@ -32,12 +32,12 @@ class DataService {
         return _REF_FEED
     }
     
-    // push information to Database
+    // MARK: CREATE USER IN DATABASE OF USERS push information to Database
     func createDBUser(uid: String, userData: Dictionary<String, Any>) {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
-    // upload post has inputs (message, sender id, public or in group)
+    // MARK: POST NEW FEED IN DATABASE FEED upload post has inputs (message, sender id, public or in group)
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, postCompletion: @escaping(_ status: Bool) -> Void) {
         if groupKey != nil {
             // post to groups ref
@@ -48,6 +48,7 @@ class DataService {
         }
     }
     
+    // MARK: GET ALL FEED FROM DATABASE FEED
     func getAllFeedMessage(getCompletion: @escaping(_ messages: [Message]) -> Void) {
         // make empty array for our Message Model
         var messageArray = [Message]()
@@ -56,7 +57,7 @@ class DataService {
             // get allObjects from snapshot and put them in array as [DataSnapshot]
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
             
-            // Fill the messageArray with data from snapshot
+            // get the data from snapshot
             for message in snapshot {
                 // get the value of the key "content"
                 let content = message.childSnapshot(forPath: "content").value as! String
@@ -69,6 +70,21 @@ class DataService {
             }
             getCompletion(messageArray)
             
+        }
+    }
+    
+    // MARK: CONVERT USERID TO EMAIL
+    func getUsername(forUID uid: String, completion: @escaping(_ username: String) -> Void) {
+        REF_USERS.observeSingleEvent(of: .value) { (snapshot) in
+            // get allObjects from snapshot and put them in array as [DataSnapshot]
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            // get the data from snapshot
+            for user in snapshot {
+                if user.key == uid {   // user has child "uid" as we entered it in func createDBUser
+                    completion(user.childSnapshot(forPath: "email").value as! String)   // get in user -> key "email" -> value
+                }
+            }
         }
     }
     
