@@ -10,21 +10,53 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var emailTxt: InsetTextField!
+    @IBOutlet weak var passwordTxt: InsetTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        emailTxt.delegate = self
+        passwordTxt.delegate = self
+    }
+    
+    @IBAction func closeBtn(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func signInBtn(_ sender: Any) {
+        if emailTxt.text != nil && passwordTxt.text != nil {
+            AuthService.instance.loginUser(withEmail: emailTxt.text!, andPassword: passwordTxt.text!) { (success, error) in
+                if success {
+                    self.dismiss(animated: true, completion: nil)
+                }else {
+                    print(error?.localizedDescription ?? "")
+                    AuthService.instance.registerUser(withEmail: self.emailTxt.text!, andPassword: self.passwordTxt.text!, userCreationComplete: { (success, error) in
+                        if success {
+                            AuthService.instance.loginUser(withEmail: self.emailTxt.text!, andPassword: self.passwordTxt.text!, loginComplete: { (success, nil) in
+                                self.dismiss(animated: true, completion: nil)
+                                print("registered")
+                            })
+                        }else {
+                            print(error?.localizedDescription ?? "")
+                        }
+                    })
+                }
+//                AuthService.instance.registerUser(withEmail: self.emailTxt.text!, andPassword: self.passwordTxt.text!, userCreationComplete: { (success, error) in
+//                    if success {
+//                        AuthService.instance.loginUser(withEmail: self.emailTxt.text!, andPassword: self.passwordTxt.text!, loginComplete: { (success, nil) in
+//                            self.dismiss(animated: true, completion: nil)
+//                            print("registered")
+//                        })
+//                    }else {
+//                        print(error?.localizedDescription ?? "")
+//                    }
+//                })
+            }
+        }
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+extension LoginVC: UITextFieldDelegate {}
