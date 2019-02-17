@@ -16,6 +16,7 @@ class AuthVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // Goto LoginVC
     @IBAction func signInByEmailBtn(_ sender: UIButton) {
         let loginVC = storyboard?.instantiateViewController(withIdentifier: "LoginVC")
         present(loginVC!, animated: true, completion: nil)
