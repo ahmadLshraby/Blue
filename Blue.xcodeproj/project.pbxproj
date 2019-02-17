@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		041BED4A2218DA43002FE32D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED492218DA43002FE32D /* AppDelegate.swift */; };
-		041BED4C2218DA43002FE32D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED4B2218DA43002FE32D /* FirstViewController.swift */; };
-		041BED4E2218DA43002FE32D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED4D2218DA43002FE32D /* SecondViewController.swift */; };
+		041BED4C2218DA43002FE32D /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED4B2218DA43002FE32D /* FeedVC.swift */; };
+		041BED4E2218DA43002FE32D /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED4D2218DA43002FE32D /* GroupsVC.swift */; };
 		041BED512218DA43002FE32D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041BED4F2218DA43002FE32D /* Main.storyboard */; };
 		041BED532218DA45002FE32D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041BED522218DA45002FE32D /* Assets.xcassets */; };
 		041BED562218DA45002FE32D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041BED542218DA45002FE32D /* LaunchScreen.storyboard */; };
@@ -26,8 +26,8 @@
 /* Begin PBXFileReference section */
 		041BED462218DA43002FE32D /* Blue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041BED492218DA43002FE32D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		041BED4B2218DA43002FE32D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		041BED4D2218DA43002FE32D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		041BED4B2218DA43002FE32D /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		041BED4D2218DA43002FE32D /* GroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsVC.swift; sourceTree = "<group>"; };
 		041BED502218DA43002FE32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		041BED522218DA45002FE32D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041BED552218DA45002FE32D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 		041BED5D2218DAEB002FE32D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				041BED4B2218DA43002FE32D /* FirstViewController.swift */,
-				041BED4D2218DA43002FE32D /* SecondViewController.swift */,
+				041BED4B2218DA43002FE32D /* FeedVC.swift */,
+				041BED4D2218DA43002FE32D /* GroupsVC.swift */,
 				041BED662218EF60002FE32D /* AuthVC.swift */,
 				041BED682218EF99002FE32D /* LoginVC.swift */,
 			);
@@ -272,12 +272,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				041BED672218EF60002FE32D /* AuthVC.swift in Sources */,
-				041BED4E2218DA43002FE32D /* SecondViewController.swift in Sources */,
+				041BED4E2218DA43002FE32D /* GroupsVC.swift in Sources */,
 				041BED692218EF99002FE32D /* LoginVC.swift in Sources */,
 				041BED6F2218FC97002FE32D /* AuthService.swift in Sources */,
 				041BED4A2218DA43002FE32D /* AppDelegate.swift in Sources */,
 				041BED6D2218F931002FE32D /* ShadowView.swift in Sources */,
-				041BED4C2218DA43002FE32D /* FirstViewController.swift in Sources */,
+				041BED4C2218DA43002FE32D /* FeedVC.swift in Sources */,
 				041BED6B2218F009002FE32D /* InsetTextField.swift in Sources */,
 				041BED652218DF85002FE32D /* DataService.swift in Sources */,
 			);
