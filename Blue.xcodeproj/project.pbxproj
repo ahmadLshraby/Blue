@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		041748F42219911B00A93969 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041748F32219911B00A93969 /* MeVC.swift */; };
+		041748F622199FCB00A93969 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041748F522199FCB00A93969 /* CreatePostVC.swift */; };
 		041BED4A2218DA43002FE32D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED492218DA43002FE32D /* AppDelegate.swift */; };
 		041BED4C2218DA43002FE32D /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED4B2218DA43002FE32D /* FeedVC.swift */; };
 		041BED4E2218DA43002FE32D /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED4D2218DA43002FE32D /* GroupsVC.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		041748F32219911B00A93969 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
+		041748F522199FCB00A93969 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		041BED462218DA43002FE32D /* Blue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041BED492218DA43002FE32D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		041BED4B2218DA43002FE32D /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				041BED662218EF60002FE32D /* AuthVC.swift */,
 				041BED682218EF99002FE32D /* LoginVC.swift */,
 				041748F32219911B00A93969 /* MeVC.swift */,
+				041748F522199FCB00A93969 /* CreatePostVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				041BED6F2218FC97002FE32D /* AuthService.swift in Sources */,
 				041BED4A2218DA43002FE32D /* AppDelegate.swift in Sources */,
 				041BED6D2218F931002FE32D /* ShadowView.swift in Sources */,
+				041748F622199FCB00A93969 /* CreatePostVC.swift in Sources */,
 				041BED4C2218DA43002FE32D /* FeedVC.swift in Sources */,
 				041BED6B2218F009002FE32D /* InsetTextField.swift in Sources */,
 				041BED652218DF85002FE32D /* DataService.swift in Sources */,
