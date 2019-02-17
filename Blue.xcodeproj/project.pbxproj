@@ -19,6 +19,7 @@
 		041BED692218EF99002FE32D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED682218EF99002FE32D /* LoginVC.swift */; };
 		041BED6B2218F009002FE32D /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED6A2218F009002FE32D /* InsetTextField.swift */; };
 		041BED6D2218F931002FE32D /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED6C2218F931002FE32D /* ShadowView.swift */; };
+		041BED6F2218FC97002FE32D /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BED6E2218FC97002FE32D /* AuthService.swift */; };
 		3549C4B37EE569A9D136F0D6 /* Pods_Blue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FFAF74EE31DC37DD1F4193C /* Pods_Blue.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		041BED682218EF99002FE32D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		041BED6A2218F009002FE32D /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		041BED6C2218F931002FE32D /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		041BED6E2218FC97002FE32D /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2FFAF74EE31DC37DD1F4193C /* Pods_Blue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Blue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FCE0FF32A28A5E46FDEC04 /* Pods-Blue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blue/Pods-Blue.debug.xcconfig"; sourceTree = "<group>"; };
 		CEFB475669D6FF1E78274F49 /* Pods-Blue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blue.release.xcconfig"; path = "Pods/Target Support Files/Pods-Blue/Pods-Blue.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				041BED642218DF85002FE32D /* DataService.swift */,
+				041BED6E2218FC97002FE32D /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				041BED672218EF60002FE32D /* AuthVC.swift in Sources */,
 				041BED4E2218DA43002FE32D /* SecondViewController.swift in Sources */,
 				041BED692218EF99002FE32D /* LoginVC.swift in Sources */,
+				041BED6F2218FC97002FE32D /* AuthService.swift in Sources */,
 				041BED4A2218DA43002FE32D /* AppDelegate.swift in Sources */,
 				041BED6D2218F931002FE32D /* ShadowView.swift in Sources */,
 				041BED4C2218DA43002FE32D /* FirstViewController.swift in Sources */,
