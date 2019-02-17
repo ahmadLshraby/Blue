@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0416A27D221A01FE00162ED2 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416A27C221A01FE00162ED2 /* FeedCell.swift */; };
+		0416A27F221A043600162ED2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416A27E221A043600162ED2 /* Message.swift */; };
 		041748F42219911B00A93969 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041748F32219911B00A93969 /* MeVC.swift */; };
 		041748F622199FCB00A93969 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041748F522199FCB00A93969 /* CreatePostVC.swift */; };
 		041748F82219A60600A93969 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041748F72219A60600A93969 /* UIViewExt.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		0416A27C221A01FE00162ED2 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		0416A27E221A043600162ED2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		041748F32219911B00A93969 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		041748F522199FCB00A93969 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		041748F72219A60600A93969 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		041BED5F2218DB0C002FE32D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0416A27E221A043600162ED2 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				041BED4C2218DA43002FE32D /* FeedVC.swift in Sources */,
 				041BED6B2218F009002FE32D /* InsetTextField.swift in Sources */,
 				041BED652218DF85002FE32D /* DataService.swift in Sources */,
+				0416A27F221A043600162ED2 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -48,4 +48,28 @@ class DataService {
         }
     }
     
+    func getAllFeedMessage(getCompletion: @escaping(_ messages: [Message]) -> Void) {
+        // make empty array for our Message Model
+        var messageArray = [Message]()
+        
+        REF_FEED.observeSingleEvent(of: .value) { (snapshot) in
+            // get allObjects from snapshot and put them in array as [DataSnapshot]
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            // Fill the messageArray with data from snapshot
+            for message in snapshot {
+                // get the value of the key "content"
+                let content = message.childSnapshot(forPath: "content").value as! String
+                // get the value of key "senderId"
+                let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                // create message in the Model
+                let message = Message(content: content, senderId: senderId)
+                // add this message to our messageArray to be used
+                messageArray.append(message)
+            }
+            getCompletion(messageArray)
+            
+        }
+    }
+    
 }

@@ -10,11 +10,49 @@ import UIKit
 
 class FeedVC: UIViewController {
 
+    @IBOutlet weak var tableview: UITableView!
+    
+    var messageArray = [Message]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        tableview.delegate = self
+        tableview.dataSource = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // download the messages from feed child in Database as array
+        DataService.instance.getAllFeedMessage { (downloadedMessageArray) in
+            self.messageArray = downloadedMessageArray
+            self.tableview.reloadData()
+        }
     }
 
 
+}
+
+extension FeedVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messageArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as? FeedCell {
+        let image = UIImage(named: "defaultProfileImage")
+            let message = messageArray[indexPath.row]
+            cell.configureCell(profileImage: image!, email: message.senderId, content: message.content)
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
 }
 
