@@ -37,7 +37,7 @@ class DataService {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
-    // MARK: POST NEW FEED IN DATABASE FEED upload post has inputs (message, sender id, public or in group)
+    // MARK: CREATE NEW FEED IN DATABASE FEED upload post has inputs (message, sender id, public or in group)
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, postCompletion: @escaping(_ status: Bool) -> Void) {
         if groupKey != nil {
             // post to groups ref
@@ -48,7 +48,7 @@ class DataService {
         }
     }
     
-    // MARK: GET ALL FEED FROM DATABASE FEED
+    // MARK: GET ALL FEED FROM DATABASE FEED  and return array of Message Model
     func getAllFeedMessage(getCompletion: @escaping(_ messages: [Message]) -> Void) {
         // make empty array for our Message Model
         var messageArray = [Message]()
@@ -63,7 +63,7 @@ class DataService {
                 let content = message.childSnapshot(forPath: "content").value as! String
                 // get the value of key "senderId"
                 let senderId = message.childSnapshot(forPath: "senderId").value as! String
-                // create message in the Model
+                // build a message in the Model
                 let message = Message(content: content, senderId: senderId)
                 // add this message to our messageArray to be used
                 messageArray.append(message)
@@ -130,5 +130,38 @@ class DataService {
         REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": uids])
         handler(true)
     }
+    
+    // MARK: GET ALL GROUPS FROM DATABASE GROUPS and return array of Group Model
+    func gettAllGroups(handler: @escaping(_ groupsArray: [Group]) -> Void) {
+        // make empty array for our Group Model
+        var groupsArray = [Group]()
+        
+        REF_GROUPS.observeSingleEvent(of: .value) { (snapshot) in
+            // get allObjects from snapshot and put them in array as [DataSnapshot]
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            // get the data from snapshot
+            for group in snapshot {
+                // get the value of the key "members" as its an [] in the Database
+                let membersArray = group.childSnapshot(forPath: "members").value as! [String]
+                
+                // get only the groups we are in , not all the groups
+                if membersArray.contains((Auth.auth().currentUser?.uid)!) {
+                    // build a group in Group Model by get the value from Database and pass it to the Model
+                    let title = group.childSnapshot(forPath: "title").value as! String
+                    let description = group.childSnapshot(forPath: "description").value as! String
+                    
+                    let group = Group(title: title, description: description, membersCount: membersArray.count, members: membersArray, key: group.key)
+                    
+                    // add this message to our messageArray to be used
+                    groupsArray.append(group)
+                }
+
+            }
+            handler(groupsArray)
+            
+        }
+    }
+    
     
 }
