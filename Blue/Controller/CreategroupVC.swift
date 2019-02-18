@@ -20,8 +20,8 @@ class CreategroupVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableview.delegate = self
+        tableview.dataSource = self
     }
     
     @IBAction func closeBtn(_ sender: UIButton) {
@@ -33,4 +33,30 @@ class CreategroupVC: UIViewController {
     
  
 
+}
+
+
+
+extension CreategroupVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath) as? UserCell {
+            let image = UIImage(named: "defaultProfileImage")
+
+            
+            cell.configureCell(profileImage: image!, email: "s", isSelected: true)
+            return cell
+        }
+        
+        return UITableViewCell()
+    }
+    
 }
