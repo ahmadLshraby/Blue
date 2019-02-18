@@ -24,7 +24,7 @@ class GroupsVC: UIViewController {
         super.viewDidAppear(animated)
         DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in   // to observe any change in Database
             // download the groups from groups child in Database as array
-            DataService.instance.gettAllGroups { (downloadedGroupsArray) in
+            DataService.instance.getAllGroups { (downloadedGroupsArray) in
                 self.groupArray = downloadedGroupsArray
                 self.tableview.reloadData()
         }
@@ -53,6 +53,14 @@ extension GroupsVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         return UITableViewCell()
+    }
+    
+    // when select a cell it goes to its group content
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let groupFeedVC = storyboard?.instantiateViewController(withIdentifier: "GroupFeedVC") as? GroupFeedVC else { return }
+        groupFeedVC.initData(forGroup: groupArray[indexPath.row])
+        present(groupFeedVC, animated: true, completion:  nil)
+        
     }
     
     

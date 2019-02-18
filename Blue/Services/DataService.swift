@@ -125,6 +125,21 @@ class DataService {
         }
     }
     
+    // MARK: GET EMAIL from Model in members take key (id) we get the email value for these members
+    func getEmails(forGroup group: Group, handler: @escaping(_ emailArray: [String]) -> Void) {
+        var emailArray = [String]()
+        REF_USERS.observeSingleEvent(of: .value) { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            for user in snapshot {
+                if group.members.contains(user.key) {
+                    let email = user.childSnapshot(forPath: "email").value as! String
+                    emailArray.append(email)
+                }
+            }
+            handler(emailArray)
+        }
+    }
+    
     // MARK: CREATE GROUP  that has title, description, list of emails that we converted them to uid
     func createGroup(forTitle title: String, andDescription description: String, forUserIds uids: [String], handler: @escaping(_ groupCreated: Bool) -> Void) {
         REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": uids])
@@ -132,7 +147,7 @@ class DataService {
     }
     
     // MARK: GET ALL GROUPS FROM DATABASE GROUPS and return array of Group Model
-    func gettAllGroups(handler: @escaping(_ groupsArray: [Group]) -> Void) {
+    func getAllGroups(handler: @escaping(_ groupsArray: [Group]) -> Void) {
         // make empty array for our Group Model
         var groupsArray = [Group]()
         
