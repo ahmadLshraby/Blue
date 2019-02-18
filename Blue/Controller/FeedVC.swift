@@ -9,7 +9,7 @@
 import UIKit
 
 class FeedVC: UIViewController {
-
+    
     @IBOutlet weak var tableview: UITableView!
     
     var messageArray = [Message]()
@@ -28,8 +28,8 @@ class FeedVC: UIViewController {
             self.tableview.reloadData()
         }
     }
-
-
+    
+    
 }
 
 // MARK: CONFIGURE TABLEVIEW
@@ -46,7 +46,7 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as? FeedCell {
-        let image = UIImage(named: "defaultProfileImage")
+            let image = UIImage(named: "defaultProfileImage")
             let message = messageArray[indexPath.row]
             
             DataService.instance.getUsername(forUID: message.senderId) { (resultUsername) in

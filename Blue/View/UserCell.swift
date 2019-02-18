@@ -9,18 +9,28 @@
 import UIKit
 
 class UserCell: UITableViewCell {
-
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var checkImage: UIImageView!
     
+    var showing = false    // to flip flop the checkImage
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        if selected == true   {
+            if showing == false {
+                checkImage.isHidden = false
+                showing = true
+            }else {
+                checkImage.isHidden = true
+                showing = false
+            }
+        }
     }
     
     func configureCell(profileImage image: UIImage, email: String, isSelected: Bool) {
@@ -32,5 +42,5 @@ class UserCell: UITableViewCell {
             self.checkImage.isHidden = true
         }
     }
-
+    
 }

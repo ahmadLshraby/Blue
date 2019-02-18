@@ -59,6 +59,5 @@ extension CreatePostVC: UITextViewDelegate {
     // make it as placeholder ( textView doesn't has placeholder so we make it by code )
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.text = ""
-        
     }
 }
