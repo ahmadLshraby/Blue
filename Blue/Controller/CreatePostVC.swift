@@ -39,7 +39,6 @@ class CreatePostVC: UIViewController {
             DataService.instance.uploadPost(withMessage: textView.text, forUID: (Auth.auth().currentUser?.uid)!, withGroupKey: nil) { (success) in
                 if success {
                     self.sendBtn.isEnabled = true
-
                     self.dismiss(animated: true, completion: nil)
                 }else {
                     self.sendBtn.isEnabled = true

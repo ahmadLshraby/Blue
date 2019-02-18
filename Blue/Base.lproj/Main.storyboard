@@ -581,8 +581,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tck-Zz-Iom">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="send a message ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XDP-Lx-fKv" customClass="InsetTextField" customModule="Blue" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="15" width="307" height="30"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="send a message ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XDP-Lx-fKv" customClass="InsetTextField" customModule="Blue" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="312" height="40"/>
                                         <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.29803921570000003" green="0.74901960779999999" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
@@ -600,16 +600,16 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.16078431369999999" green="0.16862745100000001" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.2740314901" green="0.28563568" blue="0.3229991794" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="YrB-ve-TWZ" secondAttribute="trailing" constant="15" id="E8D-NY-MWS"/>
                                     <constraint firstAttribute="bottom" secondItem="YrB-ve-TWZ" secondAttribute="bottom" constant="15" id="SHy-wM-h9f"/>
                                     <constraint firstItem="YrB-ve-TWZ" firstAttribute="top" secondItem="Tck-Zz-Iom" secondAttribute="top" constant="15" id="cXH-GR-53X"/>
                                     <constraint firstItem="YrB-ve-TWZ" firstAttribute="leading" secondItem="XDP-Lx-fKv" secondAttribute="trailing" constant="8" id="jyo-qL-QeU"/>
-                                    <constraint firstItem="XDP-Lx-fKv" firstAttribute="top" secondItem="Tck-Zz-Iom" secondAttribute="top" constant="15" id="mfz-2b-PUa"/>
+                                    <constraint firstItem="XDP-Lx-fKv" firstAttribute="top" secondItem="Tck-Zz-Iom" secondAttribute="top" constant="10" id="mfz-2b-PUa"/>
                                     <constraint firstAttribute="height" constant="60" id="qmK-d4-jcl"/>
-                                    <constraint firstItem="XDP-Lx-fKv" firstAttribute="leading" secondItem="Tck-Zz-Iom" secondAttribute="leading" constant="15" id="th1-yP-Scv"/>
-                                    <constraint firstAttribute="bottom" secondItem="XDP-Lx-fKv" secondAttribute="bottom" constant="15" id="uL2-SI-TmP"/>
+                                    <constraint firstItem="XDP-Lx-fKv" firstAttribute="leading" secondItem="Tck-Zz-Iom" secondAttribute="leading" constant="10" id="th1-yP-Scv"/>
+                                    <constraint firstAttribute="bottom" secondItem="XDP-Lx-fKv" secondAttribute="bottom" constant="10" id="uL2-SI-TmP"/>
                                 </constraints>
                             </view>
                         </subviews>

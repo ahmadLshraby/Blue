@@ -40,9 +40,11 @@ class DataService {
     // MARK: CREATE NEW FEED IN DATABASE FEED upload post has inputs (message, sender id, public or in group)
     func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, postCompletion: @escaping(_ status: Bool) -> Void) {
         if groupKey != nil {
-            // post to groups ref
+            // post to groups ref in group messages ( database-groups-key(id) auto- child"messages"-then add our messages here as [])
+            REF_GROUPS.child(groupKey!).child("messages").childByAutoId().updateChildValues(["content": message, "senderId": uid])
+            postCompletion(true)
         }else {
-            // post to feed ref
+            // post to feed ref in public feed ( database-new key(id) auto- add the feed as [])
             REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid])
             postCompletion(true)
         }
@@ -50,9 +52,10 @@ class DataService {
     
     // MARK: GET ALL FEED FROM DATABASE FEED  and return array of Message Model
     func getAllFeedMessage(getCompletion: @escaping(_ messages: [Message]) -> Void) {
+        // make empty [Message], get the messages from REF_FEED, extract our data from snapshot, fill the Model, append to []
         // make empty array for our Message Model
         var messageArray = [Message]()
-        
+        // observe all feeds in REF_FEED
         REF_FEED.observeSingleEvent(of: .value) { (snapshot) in
             // get allObjects from snapshot and put them in array as [DataSnapshot]
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
@@ -63,7 +66,7 @@ class DataService {
                 let content = message.childSnapshot(forPath: "content").value as! String
                 // get the value of key "senderId"
                 let senderId = message.childSnapshot(forPath: "senderId").value as! String
-                // build a message in the Model
+                // build a message in the Model as object
                 let message = Message(content: content, senderId: senderId)
                 // add this message to our messageArray to be used
                 messageArray.append(message)
@@ -72,6 +75,26 @@ class DataService {
             
         }
     }
+    
+    // MARK: GET ALL MESSAGES FROM DATABASE GROUPS CHILD MESSAGES AS [] of Group Model
+    func getAllMessages(forGroup group: Group, handler: @escaping(_ messagesArray: [Message]) -> Void) {
+        // make empty [Message], get the messages from REF_GROUPS.child, extract our data from snapshot, fill the Model, append to []
+        // create the empty array of Message
+        var groupMessagesArray = [Message]()
+        // go to REF_GROUPS.group key."messages" and observe in it
+        REF_GROUPS.child(group.key).child("messages").observeSingleEvent(of: .value) { (snapshot) in
+            // get the snapshot and save it then extract the value of data and pass it to the Model then append to our empty []
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            for groupMessage in snapshot {
+                let content = groupMessage.childSnapshot(forPath: "content").value as! String
+                let senderId = groupMessage.childSnapshot(forPath: "senderId").value as! String
+                let message = Message(content: content, senderId: senderId)   // object from Message Model
+                groupMessagesArray.append(message)
+            }
+            handler(groupMessagesArray)
+        }
+    }
+    
     
     // MARK: CONVERT USERID TO EMAIL  //to add them to FeedVC tableview
     func getUsername(forUID uid: String, completion: @escaping(_ username: String) -> Void) {
