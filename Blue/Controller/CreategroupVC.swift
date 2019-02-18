@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CreategroupVC: UIViewController {
     
@@ -50,6 +51,23 @@ class CreategroupVC: UIViewController {
     }
     
     @IBAction func doneBtn(_ sender: UIButton) {
+        if titleTxt.text != "" && descTxt.text != "" {
+            // get id from emails we chosen and added to array
+            DataService.instance.getids(forUsernames: chosenUserArray) { (resultIdsArray) in
+                var userIds = resultIdsArray
+                userIds.append((Auth.auth().currentUser?.uid)!)   // add myself auto
+                
+                DataService.instance.createGroup(forTitle: self.titleTxt.text!, andDescription: self.descTxt.text!, forUserIds: userIds, handler: { (success) in
+                    if success {   // created group success
+                        self.dismiss(animated: true, completion: nil)
+                    }else {
+                        print("Group could not be created !")
+                    }
+                })
+                
+                
+            }
+        }
     }
     
     

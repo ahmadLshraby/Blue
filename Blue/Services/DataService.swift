@@ -73,7 +73,7 @@ class DataService {
         }
     }
     
-    // MARK: CONVERT USERID TO EMAIL
+    // MARK: CONVERT USERID TO EMAIL  //to add them to FeedVC tableview
     func getUsername(forUID uid: String, completion: @escaping(_ username: String) -> Void) {
         REF_USERS.observeSingleEvent(of: .value) { (snapshot) in
             // get allObjects from snapshot and put them in array as [DataSnapshot]
@@ -88,7 +88,7 @@ class DataService {
         }
     }
     
-    // MARK: SEARCH FOR USER and return [String]
+    // MARK: GET, SEARCH FOR USER and return [String]  // to search in CreateGroupVC
     func getEmail(forSearchQuery query: String, handler: @escaping(_ emailArray: [String]) -> Void) {
         // make empty array for save our search query in it
         var emailArray = [String]()
@@ -110,5 +110,25 @@ class DataService {
         }
     }
     
+    // MARK: CONVERT USERNAMES TO UID  to show them in groups
+    func getids(forUsernames usernames: [String], handler: @escaping(_ uidArray: [String]) -> Void) {
+        REF_USERS.observeSingleEvent(of: .value) { (snapshot) in
+            var idArray = [String]()
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            for user in snapshot {
+                let email = user.childSnapshot(forPath: "email").value as! String  // get the email value to check
+                if usernames.contains(email) {  // check if the email is in the input of the function
+                    idArray.append(user.key)  // get the key of that email (as email is the value and key is uid) and add it to the array
+                }
+            }
+            handler(idArray)
+        }
+    }
+    
+    // MARK: CREATE GROUP  that has title, description, list of emails that we converted them to uid
+    func createGroup(forTitle title: String, andDescription description: String, forUserIds uids: [String], handler: @escaping(_ groupCreated: Bool) -> Void) {
+        REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": uids])
+        handler(true)
+    }
     
 }
