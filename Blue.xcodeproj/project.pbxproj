@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		041494CD221AD62400618BCC /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041494CC221AD62400618BCC /* GroupCell.swift */; };
 		041494CF221ADC8000618BCC /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041494CE221ADC8000618BCC /* Group.swift */; };
+		041494D1221AEC9500618BCC /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041494D0221AEC9500618BCC /* GroupFeedCell.swift */; };
+		041494D3221AED4100618BCC /* GroupFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041494D2221AED4100618BCC /* GroupFeedVC.swift */; };
 		0416A27D221A01FE00162ED2 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416A27C221A01FE00162ED2 /* FeedCell.swift */; };
 		0416A27F221A043600162ED2 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0416A27E221A043600162ED2 /* Message.swift */; };
 		041748F42219911B00A93969 /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041748F32219911B00A93969 /* MeVC.swift */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		041494CC221AD62400618BCC /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		041494CE221ADC8000618BCC /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		041494D0221AEC9500618BCC /* GroupFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedCell.swift; sourceTree = "<group>"; };
+		041494D2221AED4100618BCC /* GroupFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedVC.swift; sourceTree = "<group>"; };
 		0416A27C221A01FE00162ED2 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		0416A27E221A043600162ED2 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		041748F32219911B00A93969 /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				041748F32219911B00A93969 /* MeVC.swift */,
 				041748F522199FCB00A93969 /* CreatePostVC.swift */,
 				041D85A5221A309B00EBCED3 /* CreategroupVC.swift */,
+				041494D2221AED4100618BCC /* GroupFeedVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 				0416A27C221A01FE00162ED2 /* FeedCell.swift */,
 				041D85A7221A36D200EBCED3 /* UserCell.swift */,
 				041494CC221AD62400618BCC /* GroupCell.swift */,
+				041494D0221AEC9500618BCC /* GroupFeedCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -304,6 +310,8 @@
 				041494CD221AD62400618BCC /* GroupCell.swift in Sources */,
 				041BED672218EF60002FE32D /* AuthVC.swift in Sources */,
 				041BED4E2218DA43002FE32D /* GroupsVC.swift in Sources */,
+				041494D3221AED4100618BCC /* GroupFeedVC.swift in Sources */,
+				041494D1221AEC9500618BCC /* GroupFeedCell.swift in Sources */,
 				041BED692218EF99002FE32D /* LoginVC.swift in Sources */,
 				041BED6F2218FC97002FE32D /* AuthService.swift in Sources */,
 				041BED4A2218DA43002FE32D /* AppDelegate.swift in Sources */,
