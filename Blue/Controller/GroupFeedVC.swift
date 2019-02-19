@@ -57,7 +57,8 @@ class GroupFeedVC: UIViewController {
     }
     
     @IBAction func backBtn(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        dismissDetail()    // Extension to UIViewController for animation dismiss VC
+//        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func sendBtn(_ sender: UIButton) {
