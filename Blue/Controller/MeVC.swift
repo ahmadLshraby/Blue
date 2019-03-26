@@ -25,7 +25,7 @@ class MeVC: UIViewController {
     }
     
     @IBAction func signOutBtn(_ sender: Any) {
-        let alert = UIAlertController(title: "LogOut", message: "Are you sure, you want to logout?", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "LogOut", message: "Are you sure, you want to logout?", preferredStyle: .alert)
         let action = UIAlertAction(title: "LogOut", style: .destructive) { (buttonPressed) in
             do {
                 try Auth.auth().signOut()

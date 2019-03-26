@@ -121,12 +121,12 @@
 			children = (
 				041BED4B2218DA43002FE32D /* FeedVC.swift */,
 				041BED4D2218DA43002FE32D /* GroupsVC.swift */,
+				041494D2221AED4100618BCC /* GroupFeedVC.swift */,
 				041BED662218EF60002FE32D /* AuthVC.swift */,
 				041BED682218EF99002FE32D /* LoginVC.swift */,
 				041748F32219911B00A93969 /* MeVC.swift */,
 				041748F522199FCB00A93969 /* CreatePostVC.swift */,
 				041D85A5221A309B00EBCED3 /* CreategroupVC.swift */,
-				041494D2221AED4100618BCC /* GroupFeedVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

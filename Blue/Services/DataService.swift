@@ -50,7 +50,7 @@ class DataService {
         }
     }
     
-    // MARK: GET ALL FEED FROM DATABASE FEED  and return array of Message Model
+    // MARK: GET ALL FEED FROM DATABASE FEED  and return array of Message Model to pass this array to the FeedVC
     func getAllFeedMessage(getCompletion: @escaping(_ messages: [Message]) -> Void) {
         // make empty [Message], get the messages from REF_FEED, extract our data from snapshot, fill the Model, append to []
         // make empty array for our Message Model

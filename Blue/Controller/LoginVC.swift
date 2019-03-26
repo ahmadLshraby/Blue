@@ -42,16 +42,6 @@ class LoginVC: UIViewController {
                         }
                     })
                 }
-//                AuthService.instance.registerUser(withEmail: self.emailTxt.text!, andPassword: self.passwordTxt.text!, userCreationComplete: { (success, error) in
-//                    if success {
-//                        AuthService.instance.loginUser(withEmail: self.emailTxt.text!, andPassword: self.passwordTxt.text!, loginComplete: { (success, nil) in
-//                            self.dismiss(animated: true, completion: nil)
-//                            print("registered")
-//                        })
-//                    }else {
-//                        print(error?.localizedDescription ?? "")
-//                    }
-//                })
             }
         }
     }
